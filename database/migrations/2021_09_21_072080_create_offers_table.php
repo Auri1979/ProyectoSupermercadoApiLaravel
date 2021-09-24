@@ -19,12 +19,6 @@ class CreateOffersTable extends Migration
             $table->string('name_offer');
             $table->date('deadline');
             $table->timestamps();
-<<<<<<< HEAD:database/migrations/2021_09_21_072080_create_offers_table.php
-=======
-
-            
-    
->>>>>>> 11bbcd4e3ac074277696f4687459dc2ec157d649:database/migrations/2021_09_21_073001_create_offers_table.php
         });
     }
 
