@@ -9,11 +9,7 @@ use App\Models\Category;
 
 class SupermercadoController extends Controller
 {
-<<<<<<< HEAD
-      public function index(){
-=======
        public function Index(){
->>>>>>> 11bbcd4e3ac074277696f4687459dc2ec157d649
        
         $user = User::all();
 
