@@ -9,16 +9,16 @@ use App\Models\Category;
 
 class SupermercadoController extends Controller
 {
-       public function User(){
+      public function index(){
        
-         $user = User::all();
+        $user = User::all();
 
-         return $user;
+        return $user;
 
-       }
+      }
 
 
-       public function Order(){
+      /*  public function Order(){
        
         $order = Order::all();
 
@@ -34,13 +34,13 @@ class SupermercadoController extends Controller
 
       }
     
-     public function Category(){
+      public function Category(){
        
         $category = Category::all();
 
         return $category;
 
-      }
+      } */
 
      
 }
