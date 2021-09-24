@@ -21,6 +21,11 @@ class CreateProductsOfferTable extends Migration
 
             $table->foreign('id_offer')->references('id')->on('products');
             $table->foreign('id_product')->references('id')->on('products');
+<<<<<<< HEAD
+=======
+            $table->foreign('id_offer')->references('id')->on('offers');
+
+>>>>>>> 11bbcd4e3ac074277696f4687459dc2ec157d649
         });
     }
 
