@@ -22,7 +22,10 @@ class SupermercadoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user' => $this->faker->index(),
+            'order' => $this->faker->order(),
+            'product' => $this->faker->product(),
+            'category' => $this->faker->category(),
         ];
     }
 }

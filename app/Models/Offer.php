@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class offers extends Model
 {
-    use HasFactory;
+    public function product()
+    {
+        return $this->belongTo(product::class);
+    }
+    
+    
 }

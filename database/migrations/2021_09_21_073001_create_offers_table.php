@@ -15,10 +15,13 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->char('type_offer');
-            $table->char('name_offer');
+            $table->string('type_offer');
+            $table->string('name_offer');
             $table->date('deadline');
             $table->timestamps();
+
+            
+    
         });
     }
 
