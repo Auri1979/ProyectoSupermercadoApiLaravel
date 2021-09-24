@@ -15,12 +15,12 @@ class CreateProductsOfferTable extends Migration
     {
         Schema::create('products_offer', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_offer');
-            $table->integer('id_product');
+            $table->unsignedBigInteger('id_offer');
+            $table->unsignedBigInteger('id_product');
             $table->timestamps();
 
+            $table->foreign('id_offer')->references('id')->on('products');
             $table->foreign('id_product')->references('id')->on('products');
-
         });
     }
 

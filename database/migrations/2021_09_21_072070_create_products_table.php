@@ -21,12 +21,11 @@ class CreateProductsTable extends Migration
             $table->integer('weight');
             $table->string('description');
             $table->binary('image');
-            $table->integer('id_category');
+            $table->unsignedBigInteger('id_category');
             $table->integer('stock');
             $table->timestamps();
 
             $table->foreign('id_category')->references('id')->on('category');
-
         });
     }
 
