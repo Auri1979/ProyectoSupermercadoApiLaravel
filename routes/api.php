@@ -6,9 +6,6 @@ use App\http\Controllers\SupermercadoController;
 use App\Http\Controllers\AuthSupermercadoController;
 
 
-<<<<<<< HEAD
-/* 
-=======
 Route::get('user',[SupermercadoController::class, 'index']);
 Route::get('/user/{id}', [SupermercadoController::class, 'show']);
 Route::post('/user', [SupermercadoController::class, 'store']);
@@ -39,11 +36,9 @@ Route::delete('/category/{id}', [SupermercadoController::class, 'destroy']);
 
 Route::post('/login', [AuthSupermercadoController::class, 'login']);
 Route::post('/register', [AuthSupermercadoController::class, 'register']);
->>>>>>> 11bbcd4e3ac074277696f4687459dc2ec157d649
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
- */
 // Route::get('/users', [AnalyticsController::class, 'user']);
 
 Route::get('/users',[SupermercadoController::class,'index']);
