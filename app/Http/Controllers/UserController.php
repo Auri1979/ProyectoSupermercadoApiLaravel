@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
     public function index(){
@@ -11,18 +12,9 @@ class UserController extends Controller
         return "mostrar usuario";
 
     }
-  
+
     public function show($id){
-        
-       /*  $user=User::find($id);
-  
-        if(!$user){
- 
-            return response()->json([‘No existe’,404]);
- 
-        }
- 
-        return response()->json($user,200); */
+
         return "mostrar uno";
     }
     
