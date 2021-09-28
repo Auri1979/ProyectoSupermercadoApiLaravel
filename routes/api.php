@@ -2,16 +2,16 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\SupermercadoController;
+use App\http\Controllers\UserController;
 use App\Http\Controllers\AuthSupermercadoController;
 
 
-Route::get('user',[SupermercadoController::class, 'index']);
-Route::get('/user/{id}', [SupermercadoController::class, 'show']);
-Route::post('/user', [SupermercadoController::class, 'store']);
-Route::put('/user/{id}', [SupermercadoController::class, 'update']);
-Route::delete('/user/{id}', [SupermercadoController::class, 'destroy']);
-
+Route::get('user',[UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::post('/user', [UserController::class, 'store']);
+Route::put('/user/{id}', [UserController::class, 'update']);
+Route::delete('/user/{id}', [UserController::class, 'destroy']);
+/* 
 Route::get('order',[SupermercadoController::class, 'order']);
 Route::get('/order/{id}', [SupermercadoController::class, 'show']);
 Route::post('/order', [SupermercadoController::class, 'store']);
@@ -41,4 +41,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 // Route::get('/users', [AnalyticsController::class, 'user']);
 
-Route::get('/users',[SupermercadoController::class,'index']);
+Route::get('/users',[SupermercadoController::class,'index']); */

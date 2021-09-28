@@ -11,9 +11,18 @@ class UserController extends Controller
         return "mostrar usuario";
 
     }
-
+  
     public function show($id){
-
+        
+       /*  $user=User::find($id);
+  
+        if(!$user){
+ 
+            return response()->json([‘No existe’,404]);
+ 
+        }
+ 
+        return response()->json($user,200); */
         return "mostrar uno";
     }
     
