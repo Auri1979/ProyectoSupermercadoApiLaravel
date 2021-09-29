@@ -1,50 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index(){
     
-        return "mostrar product";
-
-    }
-
-    public function show($id){
-
-        return "mostrar uno";
-    }
-    
-    public function create(){
-
-       return "crear product";
-
-    }
-      
-    public function update($id){
-
-        return "modificar product";
-
-    }
-
-    public  function destroy($id){
-
-        return "borrar product";
-
-    }
-
-
-    
-    public function store(Request $request){
-
-        $datos_validados = $request->validate([
-
-          'product' => 'required',
-
-   ]);
-
-}
+        $product = Product::all();   
+ 
+         return $product;
+ 
+     }
+ 
+     public function show($id){
+ 
+         $product = Product::find($id);
+ 
+         //comprobar que existe Product
+ 
+         if(!$product){
+ 
+           return ['error' => 'Product no encontrado'];
+ 
+         }
+ 
+ 
+         return  $product;
+     }
   }
 

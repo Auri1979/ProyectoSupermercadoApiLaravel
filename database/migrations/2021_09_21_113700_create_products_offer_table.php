@@ -19,8 +19,9 @@ class CreateProductsOfferTable extends Migration
             $table->unsignedBigInteger('id_product');
             $table->timestamps();
 
-            $table->foreign('id_offer')->references('id')->on('products');
             $table->foreign('id_product')->references('id')->on('products');
+            $table->foreign('id_offer')->references('id')->on('offers');
+
         });
     }
 
