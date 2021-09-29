@@ -24,11 +24,8 @@ class CategoryFactory extends Factory
         return [
             
             'id' => $this->faker->name(),
-            'Category_name' => $this->faker->name(),
+            'Category_name' => Category::factory(),
             
-
-
-
         ];
     }
 }

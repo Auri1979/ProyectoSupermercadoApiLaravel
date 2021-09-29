@@ -23,6 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            
             'rol' => $this->faker->name(),
             'name' => $this->faker->name(),
             'lastname'=> $this->faker->lastname(),

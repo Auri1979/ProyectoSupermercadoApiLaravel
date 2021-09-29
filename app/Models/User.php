@@ -9,17 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
-
-
  
-class users extends Model
-{
-    public function orders()
-    {
-        return $this->hasMany(orders::class);
-    }
-
-}
 
 class User extends Authenticatable
 {
@@ -54,4 +44,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(orders::class);
+    }
+
+
 }

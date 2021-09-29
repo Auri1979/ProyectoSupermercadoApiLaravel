@@ -19,7 +19,6 @@ class CreateOrdersProductsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('description');
             $table->integer('quantity');
-            $table->integer('precio_total_cantidad');
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');
