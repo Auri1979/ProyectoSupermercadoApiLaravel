@@ -29,5 +29,15 @@ class ProductController extends Controller
  
          return  $product;
      }
+
+     public function store(Request $request){
+
+        $datos_validados = $request->validate([
+
+          'product' => 'required',
+
+   ]);
+
   }
 
+  }

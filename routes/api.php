@@ -52,7 +52,10 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
 // Route::post('/category',[OfferController::class, 'AuthCategoryController']);
 
 
-
+// Route::get('/productos', function () {
+//     $products = \App\Product::all();
+//     return view('products', ['products' => $products]);
+// });
 // Route::post('/login', [AuthUserController::class, 'login']);
 // Route::post('/register', [AuthUserController::class, 'register']);
 // Route::get('/logout', [AuthUserController::class, 'logout']);

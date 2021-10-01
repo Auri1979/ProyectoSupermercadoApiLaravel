@@ -11,16 +11,16 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongTo(category::class);
+        return $this->belongsTo(ProductCategory::class);
     }
 
      
     public function offer_product()
     {
-        return $this->hasOne(products_offer::class);
+        return $this->hasOne(Product_offer::class);
     }
     
-    public function orders()
+    public function order()
     {
         return $this->belongsToMany(Order::class);
     }
