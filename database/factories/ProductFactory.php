@@ -28,8 +28,8 @@ class ProductFactory extends Factory
             'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 50),
             'weight' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 20, $max = 8000),
             'description'=> $this->faker->text($maxNbChars = 200),     
-            'image' => $this->faker->image($dir = 'C:\laragon\www\ProyectoSupermercadoApiLaravel', $width = 640, $height = 480),            
-            'id_category' => 6,
+            'image' => $this->faker->image($dir = 'C:\laragon\www\ProyectoSupermercadoApiLaravel\image', $width = 640, $height = 480),            
+            'id_category' => ProductCategory::factory(),
             'stock' => $this->faker->numberBetween($min = 0, $max = 100),
             
         ];
