@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('rol');
+            $table->string('rol')->default("customer");
             $table->string('name');
             $table->string('lastname');
             $table->string('address');
@@ -27,11 +27,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
     }
-       
-
-
-
-
+    
     /**
      * Reverse the migrations.
      *
