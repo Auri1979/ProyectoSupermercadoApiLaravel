@@ -22,16 +22,15 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        return [
-            // 'id' => $this->faker->Numberbetween($min = 1, $max = 10000),            
+        return [            
             'code'=> $this->faker->numberBetween($min = 1000, $max = 10000),
             'name' => $this->faker->name(),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 50),
             'weight' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 20, $max = 8000),
             'description'=> $this->faker->text($maxNbChars = 200),     
-            'image' => $this->faker->imageUrl($dir = 'C:\Users\ADM\Desktop\Producto.jpg', $width = 640, $height = 480),            
-            'id_category' => ProductCategory::factory(),
-            // 'stock' => $this->faker->numberBetween($min = 0, $max = 100),
+            'image' => $this->faker->image($dir = 'C:\laragon\www\ProyectoSupermercadoApiLaravel\image', $width = 640, $height = 480),            
+            'id_category' => 6,
+            'stock' => $this->faker->numberBetween($min = 0, $max = 100),
             
         ];
     }

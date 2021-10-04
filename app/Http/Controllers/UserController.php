@@ -27,14 +27,43 @@ class UserController extends Controller
 
         return "mostrar user";
     }
+
+    public function store(Request $request){
+
+        $datos_validados = $request->validate([
+        
+            'name' => 'required|min:3',
+
+            'lastname' => 'required|min:4',
+
+            'address' => 'required|min:4',
+
+            'telephone' => 'required|min:9|max:9',
+ 
+            'email' => 'required|email',
+
+            'email_verified_at' => 'required|email',
+
+            'password' => 'min:8',
+
+   ]);
+
+         //crear
+
+            User::create($datos_validados);
+
+       return ['mensaje' => 'User creado'];
+
+   }
+
     
-    public function create(){
+    // public function create(){
 
-       $user = User::create();
+    //    $user = User::create();
 
-       return "crear user";
+    //    return "crear user";
 
-    }
+    // }
       
     public function update($id, Request $request){
   
