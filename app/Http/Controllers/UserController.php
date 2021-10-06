@@ -25,7 +25,7 @@ class UserController extends Controller
             return ['error' => '$user no encontrado'];
         }
 
-        return "mostrar user";
+        return $user;
     }
 
     public function store(Request $request){
