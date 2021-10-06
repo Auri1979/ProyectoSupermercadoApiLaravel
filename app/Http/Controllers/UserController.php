@@ -50,42 +50,31 @@ class UserController extends Controller
 
          //crear
 
-            User::create($datos_validados);
+        User::create($datos_validados);
 
-       return ['mensaje' => 'User creado'];
+        return ['mensaje' => 'User creado'];
 
    }
-
-    
-    // public function create(){
-
-    //    $user = User::create();
-
-    //    return "crear user";
-
-    // }
       
     public function update($id, Request $request){
   
              //validar los user
 
         $datos_validados = $request->validate([
+  
+            'name' => 'required|min:3',
 
-            'name' => 'min:3',
+            'lastname' => 'required|min:4',
 
-            'lastname' => 'min:4',
+            'address' => 'required|min:4',
 
-            'address' => 'min:4',
-
-            'telephone' => 'min:8',
+            'telephone' => 'required|min:9|max:9',
  
-            'email' => 'min:8',
+            'email' => 'required|email',
 
-            'email_verified_at' => 'min:8',
+            'email_verified_at' => 'required|email',
 
-            'password' => 'min:8',
-
-            
+            'password' => 'min:8',        
  
      ]);
 
@@ -105,18 +94,8 @@ class UserController extends Controller
         $user->update($datos_validados);
 
         return ['mensaje' => 'User actualizado'];
-      
-      
-
+ 
     }
-
-    public  function destroy($id){
-
-        return "borrar user";
-
-    }
-
-
     
 //     public function store(Request $request){
 
