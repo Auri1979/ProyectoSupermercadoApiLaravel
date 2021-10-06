@@ -29,14 +29,8 @@ class OrderController extends Controller
 
         return  $order;
     }
-    
-    // public function create(){
-
-    //    return "crear order";
-
-    // }
-      
-    public function update($id, Request $request){
+          
+      public function update($id, Request $request){
 
         //validar los datos
 
