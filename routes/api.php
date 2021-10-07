@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\UserController;
-use App\Http\Controllers\AuthUserController;
+//use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\CategoryController;
 /**use App\Http\Controllers\AuthCategoryController;**/
 use App\Http\Controllers\ProductController;
