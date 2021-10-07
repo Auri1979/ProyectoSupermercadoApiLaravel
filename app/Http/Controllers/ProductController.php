@@ -34,15 +34,15 @@ class ProductController extends Controller
 
         $datos_validados = $request->validate([
 
-          'code'=> 'required|min:3',
+          'code'=> 'required|min:1',
 
-          'name' => 'required|min:3',
+          'name' => 'required|min:1',
 
-          'price' => 'required|min:3',
+          'price' => 'required|min:1',
 
           'weight' => 'required|min:1',
 
-          'description' => 'required|min:3',
+          'description' => 'required|min:1',
 
           'image'=> 'required|mimes:jpeg,png,jpg,gif,svg|max:4000,dimensions:min_width=640,min_height=480,max_width=640,max_height=480', 
 
@@ -67,21 +67,22 @@ class ProductController extends Controller
   
     //validar product
 
+    
       $datos_validados = $request->validate([
 
-          'code' => 'required|min:3',
+          'code' => 'required|min:1',
 
-          'name' => 'required|min:3',
+          'name' => 'required|min:1',
 
-          'price' => 'required|min:3',
+          'price' => 'required|min:1',
 
-          'weight' => 'required|min:3',
+          'weight' => 'required|min:1',
 
-          'description' => 'required|min:3',
+          'description' => 'required|min:1',
 
-          'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048,dimensions:min_width=640,min_height=480,max_width=640,max_height=480',  
+          //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048,dimensions:min_width=640,min_height=480,max_width=640,max_height=480',  
 
-          'id_category' => 'required|min:3',
+          'id_category' => 'required|min:1',
 
           'stock'=> 'required|min:1',              
         ]);
@@ -106,5 +107,29 @@ class ProductController extends Controller
  
     }
       
+    public function destroy($id) {
 
-    }
+      //buscar product id
+
+      $product = Product::find($id);
+
+      //comprobar que existe product
+
+      if(!$product){
+
+        return ['error' => 'Product no encontrado'];
+
+      }
+    //Actualizar product
+
+      $product->destroy($id);
+
+      return ['mensaje' => 'Product borrado'];
+  }
+
+}
+       
+
+        
+
+  
