@@ -25,6 +25,7 @@ class ModelFactory extends Factory
             'type_offer'=> $this->faker->text($maxNbChars = 200),
             'name_offer' => $this->faker->name(),
             'deadline' => $this->faker->date(),
+            'discount' => $this->faker->string(),
         ];
     }
 }

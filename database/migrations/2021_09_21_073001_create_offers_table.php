@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOffersTable extends Migration
+class CreateOfferTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->id();
-            $table->string('type_offer');
-            $table->string('name_offer');
-            $table->date('deadline');
-            $table->timestamps();
-
-            
+            $table->unsignedbigInteger('id');
+            $table->string('title');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('discount_type');
+            $table->integer('discount');
+            $table->timestamps(); 
     
         });
     }
