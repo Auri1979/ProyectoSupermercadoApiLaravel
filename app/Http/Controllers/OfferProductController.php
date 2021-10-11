@@ -1,34 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Offer;
 
-class OfferController extends Controller
+use App\Models\OfferProduct;
+use Database\Factories\OfferProductFactory;
+use Illuminate\Http\Request;
+
+class OfferProductController extends Controller
 {
     
     public function index(){
     
-        $offer = Offer::all();   
+        $offerproduct = OfferProduct::all();   
  
-         return $offer;
+         return $offerproduct;
  
     }
  
     public function show($id){
  
-         $offer = Offer::find($id);
+         $offerproduct = OfferProduct::find($id);
  
          //comprobar que existe offer
  
-         if(!$offer){
+         if(!$offerproduct){
  
-           return ['error' => 'Offer no encontrado'];
+           return ['error' => 'OfferProduct no encontrado'];
  
         }
  
  
-         return  $offer;
+         return  $offerproduct;
     }
            
        
@@ -47,9 +49,9 @@ class OfferController extends Controller
 
          //crear
 
-        Offer::create($datos_validados);
+        OfferProduct::create($datos_validados);
 
-        return ['mensaje' => 'offer creado'];
+        return ['mensaje' => 'offerproduct creado'];
 
    }
        
@@ -71,20 +73,20 @@ class OfferController extends Controller
  
          //buscar offer id
  
-         $offer = Offer::find($id);
+         $offerproduct = OfferProduct::find($id);
  
          //comprobar que existe offer
  
-         if(!$offer){
+         if(!$offerproduct){
  
-           return ['error' => 'Offer no encontrado'];
+           return ['error' => 'OfferProduct no encontrado'];
  
          }
        //Actualizar offer
  
-         $offer->update($datos_validados);
+         $offerproduct->update($datos_validados);
  
-         return ['mensaje' => 'Offer actualizado'];
+         return ['mensaje' => 'OfferProduct actualizado'];
          }
             
          
@@ -92,26 +94,23 @@ class OfferController extends Controller
 
       //buscar offer id
 
-      $offer = Offer::find($id);
+      $offerproduct = OfferProduct::find($id);
 
       //comprobar que existe offer
 
-      if(!$offer){
+      if(!$offerproduct){
 
-        return ['error' => 'offer no encontrado'];
+        return ['error' => 'offerproduct no encontrado'];
 
       }
     //Actualizar offer
 
-      $offer->destroy($id);
+      $offerproduct->destroy($id);
 
-      return ['mensaje' => 'offer borrado'];
+      return ['mensaje' => 'offerproduct borrado'];
   }
 
 
 
 
-    }
-
-
-   
+}

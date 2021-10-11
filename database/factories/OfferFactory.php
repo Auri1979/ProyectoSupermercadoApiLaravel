@@ -22,10 +22,11 @@ class ModelFactory extends Factory
     public function definition()
     {
         return [
-            'type_offer'=> $this->faker->text($maxNbChars = 200),
-            'name_offer' => $this->faker->name(),
-            'deadline' => $this->faker->date(),
-            'discount' => $this->faker->string(),
+            'title' => $this->text(),
+            'start_date' => $this->date(),
+            'end_date' => $this->faker->dateTimeBetween(),
+            'discount' => $this->faker->numberBetween($min = 1, $max = 50),
+            'discount_type' => $this->numberBetween($min = 1, $max = 50),
         ];
     }
 }
