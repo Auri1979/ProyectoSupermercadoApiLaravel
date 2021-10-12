@@ -57,46 +57,42 @@ class ProductController extends Controller
         Product::create($datos_validados);
 
         return ['mensaje' => 'Product create'];
-
-   
-
-
   }
 
-   public function update($id, Request $request){
+    public function update($id, Request $request){
   
     //validar product
-
+      //dd($request->all());
       $datos_validados = $request->validate([
+     
+        'code'=> 'required|min:3',
 
-          'code' => 'required|min:3',
+        'name' => 'required|min:3',
 
-          'name' => 'required|min:3',
+        'price' => 'required|min:3',
 
-          'price' => 'required|min:3',
+        'weight' => 'required|min:1',
 
-          'weight' => 'required|min:3',
+        'description' => 'required|min:3',
 
-          'description' => 'required|min:3',
+        'image'=> 'required|mimes:jpeg,png,jpg,gif,svg|max:4000,dimensions:min_width=640,min_height=480,max_width=640,max_height=480', 
 
-          'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048,dimensions:min_width=640,min_height=480,max_width=640,max_height=480',  
+        'id_category' => 'required|min:1',
 
-          'id_category' => 'required|min:3',
-
-          'stock'=> 'required|min:1',              
-        ]);
+        'stock'=> 'required|min:1',    
+      ]);
 
       
          //buscar Product id
 
         $product = Product::find($id);
-
+        
         //comprobar product que existe
 
         if(!$product){
 
           return ['error' => 'Product no encontrado'];
-
+      
         }
       //Actualizar product
 
@@ -105,4 +101,5 @@ class ProductController extends Controller
         return ['mensaje' => 'product actualizado'];
  
     }
-    }
+    
+}

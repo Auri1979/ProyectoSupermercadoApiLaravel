@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\UserController;
-//use App\Http\Controllers\AuthUserController;
+use App\http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 /**use App\Http\Controllers\AuthCategoryController;**/
 use App\Http\Controllers\ProductController;
@@ -14,20 +14,20 @@ use App\Http\Controllers\OfferController;
 /**use App\Http\Controllers\AuthOfferController;*/
 
 
-Route::get('user',[UserController::class, 'index']);
+/* Route::get('user',[UserController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::post('/user', [UserController::class, 'store']);
-Route::put('/user/{id}', [UserController::class, 'update']);
+Route::put('/user/{id}', [UserController::class, 'update']); */
 //Route::delete('/user/{id}', [UserController::class, 'destroy']);
 // Route::post('/user',[UserController::class, 'AuthUserController']);
 
 Route::get('order',[OrderController::class, 'index']);
-Route::get('/order/{id}', [OrderController::class, 'show']);
-Route::post('/order', [OrderController::class, 'store']);
-Route::put('/order/{id}', [OrderController::class, 'update']);
+//Route::get('/order/{id}', [OrderController::class, 'show']);
+//Route::post('/order', [OrderController::class, 'store']);
+//Route::put('/order/{id}', [OrderController::class, 'update']);
 // Route::delete('/order/{id}', [OrderController::class, 'destroy']);
 // Route::post('/Order',[OrderController::class, 'AuthOrderController']);
-
+Route::get('order',[OrderController::class, 'getpedidos']);
 
 Route::get('product',[ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
@@ -37,8 +37,8 @@ Route::put('/product/{id}', [ProductController::class, 'update']);
 // Route::post('/product',[ProductController::class, 'AuthProductController']);
 
 
-Route::get('category',[CategoryController::class, 'index']);
-Route::get('/category/{id}', [CategoryController::class, 'show']);
+//Route::get('category',[CategoryController::class, 'index']);
+//Route::get('/category/{id}', [CategoryController::class, 'show']);
 // Route::post('/category', [CategoryController::class, 'store']);
 // Route::put('/category/{id}', [CategoryController::class, 'update']);
 // Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
@@ -56,9 +56,15 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
 //     $products = \App\Product::all();
 //     return view('products', ['products' => $products]);
 // });
-// Route::post('/login', [AuthUserController::class, 'login']);
-// Route::post('/register', [AuthUserController::class, 'register']);
-// Route::get('/logout', [AuthUserController::class, 'logout']);
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+ Route::post('/login', [AuthController::class, 'login']);
+ Route::post('/register', [AuthController::class, 'register']);
+// Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::middleware(['auth:sanctum'])->group(function(){
+    Route::get('user',[UserController::class, 'index']);
+    Route::get('/user/{id}', [UserController::class, 'show']);
+    Route::post('/user', [UserController::class, 'store']);
+    Route::put('/user/{id}', [UserController::class, 'update']);
+
+    Route::get('/logout', [AuthController::class, 'logout']);
+});
