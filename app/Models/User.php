@@ -24,7 +24,6 @@ class User extends Authenticatable
         'rol',
         'name',
         'lastname',
-        'lastname',
         'address',
         'email',
         'email_verified_at',

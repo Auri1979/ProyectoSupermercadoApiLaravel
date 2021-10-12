@@ -105,6 +105,4 @@ class ProductController extends Controller
         return ['mensaje' => 'product actualizado'];
  
     }
-      
-
     }
