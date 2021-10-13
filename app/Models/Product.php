@@ -33,7 +33,7 @@ class Product extends Model
 
         'description',
 
-        'image',
+        //'image',
 
         'id_category',
 

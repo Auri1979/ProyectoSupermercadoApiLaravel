@@ -12,7 +12,9 @@ use App\Http\Controllers\OrderController;
 /**use App\Http\Controllers\AuthOrderController;*/
 use App\Http\Controllers\OfferController;
 /**use App\Http\Controllers\AuthOfferController;*/
-
+use App\Http\Controllers\OfferProductController;
+use App\Http\Controllers\OrdersproductController;
+use App\Http\Controllers\ImageController;
 
 Route::get('user',[UserController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'show']);
@@ -33,7 +35,7 @@ Route::get('product',[ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
 Route::post('/product', [ProductController::class, 'store']);
 Route::put('/product/{id}', [ProductController::class, 'update']);
-// Route::delete('/product/{id}', [ProductController::class, 'destroy']);
+//Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 // Route::post('/product',[ProductController::class, 'AuthProductController']);
 
 
@@ -44,12 +46,32 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
 // Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
 // Route::post('/category',[CategoryController::class, 'AuthCategoryController']);
 
-// Route::get('offer',[OfferController::class, 'offer']);
-// Route::get('/offer/{id}', [OfferController::class, 'show']);
-// Route::post('/category', [OfferController::class, 'store']);
-// Route::put('/category/{id}', [OfferController::class, 'update']);
-// Route::delete('/category/{id}', [OfferController::class, 'destroy']);
-// Route::post('/category',[OfferController::class, 'AuthCategoryController']);
+ Route::get('offer',[OfferController::class, 'index']);
+ Route::get('/offer/{id}', [OfferController::class, 'show']);
+ Route::post('/offer', [OfferController::class, 'store']);
+ Route::put('/offer/{id}', [OfferController::class, 'update']);
+ Route::delete('/offer/{id}', [OfferController::class, 'destroy']);
+// Route::post('/offer',[OfferController::class, 'AuthCategoryController']);
+
+Route::get('ordersproduct',[OrdersProductController::class, 'index']);
+Route::get('/ordersproduct/{id}', [OrdersProductController::class, 'show']);
+Route::post('/ordersproduct', [OrdersProductController::class, 'store']);
+Route::put('/ordersproduct/{id}', [OrdersProductController::class, 'update']);
+Route::delete('/ordersproduct/{id}', [OrdersProductController::class, 'destroy']);
+
+Route::get('offerproduct',[OfferProductController::class, 'index']);
+Route::get('/offerproduct/{id}', [OfferProductController::class, 'show']);
+Route::post('/offerproduct', [OfferProductController::class, 'store']);
+Route::put('/offerproduct/{id}', [OfferProductController::class, 'update']);
+Route::delete('/offerproduct/{id}', [OfferProductController::class, 'destroy']);
+
+Route::get('image',[ImageController::class, 'index']);
+Route::get('/image/{id}', [ImageController::class, 'show']);
+Route::post('/image', [ImageController::class, 'store']);
+Route::put('/image/{id}', [ImageController::class, 'update']);
+Route::delete('/image/{id}', [ImageController::class, 'destroy']);
+
+
 
 
 // Route::get('/productos', function () {
