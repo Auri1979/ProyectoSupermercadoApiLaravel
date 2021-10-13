@@ -39,12 +39,6 @@ class UserController extends Controller
             'address' => 'required|min:4',
 
             'telephone' => 'required|min:9|max:9',
- 
-            'email' => 'required|email',
-
-            'email_verified_at' => 'required|email',
-
-            'password' => 'min:8',
 
    ]);
 
@@ -70,12 +64,6 @@ class UserController extends Controller
 
             'telephone' => 'required|min:9|max:9',
  
-            'email' => 'required|email',
-
-            'email_verified_at' => 'required|email',
-
-            'password' => 'min:8',        
- 
      ]);
 
         //buscar user id
@@ -96,14 +84,6 @@ class UserController extends Controller
         return ['mensaje' => 'User actualizado'];
  
     }
-    
-//     public function store(Request $request){
-
-//         $datos_validados = $request->validate([
-
-//           'index' => 'required',
-
-//    ]);
 
 }
   

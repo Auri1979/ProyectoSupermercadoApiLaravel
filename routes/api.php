@@ -56,9 +56,9 @@ Route::put('/product/{id}', [ProductController::class, 'update']);
 //     $products = \App\Product::all();
 //     return view('products', ['products' => $products]);
 // });
- Route::post('/login', [AuthController::class, 'login']);
- Route::post('/register', [AuthController::class, 'register']);
-// Route::get('/logout', [AuthController::class, 'logout']);
+Route::post('/user_login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('user',[UserController::class, 'index']);

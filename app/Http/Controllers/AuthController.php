@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
-
-Use App\Models\User;
+Use App\Models\UserLogin;
 
 class AuthController extends Controller
 {
@@ -32,7 +31,7 @@ class AuthController extends Controller
 
         } 
         else{
-            return ['Error'=>'unauthorized'];}
+            return response(['Error'=>'unauthorized'],401);}
     }
 
     public function register(Request $request){
@@ -45,7 +44,7 @@ class AuthController extends Controller
         //encriptar password
         $credentials['password'] = bcrypt($credentials['password']);
         //crear usuario nuevo
-        $usuario = User::create($credentials);
+        $usuario = UserLogin::create($credentials);
         //generar el token
         $token =$usuario->createToken('TokenUsuario')->plainTextToken;
         //devolver respuesta
@@ -61,6 +60,6 @@ class AuthController extends Controller
 
         $usuarioLogeado -> tokens()->delete();
 
-        return ['mensaje'=> 'Usuario deslogeado];
+        return ['mensaje'=> 'Usuario deslogeado'];
     }
 }
