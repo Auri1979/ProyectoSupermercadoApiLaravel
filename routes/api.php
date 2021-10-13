@@ -63,7 +63,7 @@ Route::get('offerproduct',[OfferProductController::class, 'index']);
 Route::get('/offerproduct/{id}', [OfferProductController::class, 'show']);
 Route::post('/offerproduct', [OfferProductController::class, 'store']);
 Route::put('/offerproduct/{id}', [OfferProductController::class, 'update']);
-Route::delete('/offerproduct/{id}', [OfferProductsController::class, 'destroy']);
+Route::delete('/offerproduct/{id}', [OfferProductController::class, 'destroy']);
 
 Route::get('image',[ImageController::class, 'index']);
 Route::get('/image/{id}', [ImageController::class, 'show']);

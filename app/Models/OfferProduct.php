@@ -9,19 +9,17 @@ class OfferProduct extends Model
 {
     use HasFactory;
 
-    public function product()
-    {
-        return $this->belongTo(product::class);
-    }
-    
-   
-
     protected $fillable = [
         
         'id_offer',
         'id_product',
 
     ];
+
+    public function product()
+    {
+        return $this->belongTo(product::class);
+    }
 
 
 }

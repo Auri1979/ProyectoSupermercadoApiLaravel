@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\OfferProduct;
-use Database\Factories\OfferProductFactory;
 use Illuminate\Http\Request;
 
 class OfferProductController extends Controller
@@ -38,12 +37,8 @@ class OfferProductController extends Controller
 
         $datos_validados = $request->validate([
         
-            
-          'title' => 'min:1',
-          'start_date' =>'date',
-          'end_date' =>'date',
-          'discount_type' => 'min:1',
-          'discount' => 'min:1',
+          'id_offer' => 'min:1',
+          'id_product' => 'min:1',
 
    ]);
 
@@ -64,11 +59,9 @@ class OfferProductController extends Controller
  
          $datos_validados = $request->validate([
               
-            'title' => 'min:1',
-            'start_date' =>'date',
-            'end_date' =>'date',
-            'discount_type' => 'min:1',
-            'discount' => 'min:1',
+          'id_offer' => 'min:1',
+          'id_product' => 'min:1',
+
             ]);
  
          //buscar offer id

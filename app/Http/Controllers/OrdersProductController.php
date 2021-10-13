@@ -19,7 +19,7 @@ class OrdersProductController extends Controller
  
          $ordersproduct = OrdersProduct::find($id);
  
-         //comprobar que existe order
+         //comprobar que existe ordersoroduct
  
          if(!$ordersproduct){
  
@@ -76,7 +76,7 @@ class OrdersProductController extends Controller
  
          $ordersproduct = OrdersProduct::find($id);
  
-         //comprobar que existe order
+         //comprobar que existe ordersproduct
  
          if(!$ordersproduct){
  
@@ -92,18 +92,18 @@ class OrdersProductController extends Controller
          
      public function destroy($id) {
 
-      //buscar offer id
+      //buscar orderproduct id
 
       $ordersproduct = OrdersProduct::find($id);
 
-      //comprobar que existe ordersproduct
+      //comprobar que existe ordersproducts
 
       if(!$ordersproduct){
 
         return ['error' => 'ordersproduct no encontrado'];
 
       }
-    //Actualizar offer
+    //Actualizar ordersproducts
 
       $ordersproduct->destroy($id);
 

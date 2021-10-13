@@ -23,10 +23,10 @@ class OrdersProductFactory extends Factory
     {
         return [
             
-            'orders_id',
-            'product_id',
-            'description',
-            'quantity',
+            'orders_id'=> OrdersProduct::factory(),
+            'product_id'=> OrdersProduct::factory(),
+            'description'=>$this->faker->text($maxNbChars = 200),
+            'quantity'=>$this->randomNumber($nbDigits = NULL, $strict = false),
         ];
     }
 }
