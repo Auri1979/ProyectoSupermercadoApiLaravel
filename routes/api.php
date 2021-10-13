@@ -16,14 +16,14 @@ use App\Http\Controllers\OfferController;
 
 Route::get('user',[UserController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'show']);
-// Route::post('/user', [UserController::class, 'store']);
+Route::post('/user', [UserController::class, 'store']);
 Route::put('/user/{id}', [UserController::class, 'update']);
-Route::delete('/user/{id}', [UserController::class, 'destroy']);
+//Route::delete('/user/{id}', [UserController::class, 'destroy']);
 // Route::post('/user',[UserController::class, 'AuthUserController']);
 
 Route::get('order',[OrderController::class, 'index']);
 Route::get('/order/{id}', [OrderController::class, 'show']);
-// Route::post('/order', [OrderController::class, 'store']);
+Route::post('/order', [OrderController::class, 'store']);
 Route::put('/order/{id}', [OrderController::class, 'update']);
 // Route::delete('/order/{id}', [OrderController::class, 'destroy']);
 // Route::post('/Order',[OrderController::class, 'AuthOrderController']);
@@ -31,8 +31,8 @@ Route::put('/order/{id}', [OrderController::class, 'update']);
 
 Route::get('product',[ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
-// Route::post('/product', [ProductController::class, 'store']);
-// Route::put('/product/{id}', [ProductController::class, 'update']);
+Route::post('/product', [ProductController::class, 'store']);
+Route::put('/product/{id}', [ProductController::class, 'update']);
 // Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 // Route::post('/product',[ProductController::class, 'AuthProductController']);
 
