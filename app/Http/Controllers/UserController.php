@@ -9,13 +9,11 @@ class UserController extends Controller
 {
     public function index(){
 
-     $user = User::all();
+        $user = User::all();
 
-    
         return $user;
 
     }
-
     public function show($id){
 
         $user = User::find($id);
@@ -24,7 +22,6 @@ class UserController extends Controller
 
             return ['error' => '$user no encontrado'];
         }
-
         return $user;
     }
 
@@ -39,12 +36,6 @@ class UserController extends Controller
             'address' => 'required|min:4',
 
             'telephone' => 'required|min:9|max:9',
- 
-            'email' => 'required|email',
-
-            'email_verified_at' => 'required|email',
-
-            'password' => 'min:8',
 
    ]);
 
@@ -58,7 +49,7 @@ class UserController extends Controller
       
     public function update($id, Request $request){
   
-             //validar los user
+        //validar los user
 
         $datos_validados = $request->validate([
   
@@ -69,12 +60,6 @@ class UserController extends Controller
             'address' => 'required|min:4',
 
             'telephone' => 'required|min:9|max:9',
- 
-            'email' => 'required|email',
-
-            'email_verified_at' => 'required|email',
-
-            'password' => 'min:8',        
  
      ]);
 
@@ -96,14 +81,6 @@ class UserController extends Controller
         return ['mensaje' => 'User actualizado'];
  
     }
-    
-//     public function store(Request $request){
-
-//         $datos_validados = $request->validate([
-
-//           'index' => 'required',
-
-//    ]);
 
 }
   

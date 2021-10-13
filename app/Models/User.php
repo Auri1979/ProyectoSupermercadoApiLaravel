@@ -9,8 +9,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
- 
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -22,13 +20,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'rol',
-        'name',
-        'lastname',
-        'address',
         'email',
         'email_verified_at',
         'password',
-        'telephone', 
     ];
 
     /**
@@ -50,10 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function order()
+    public function customers()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasOne(Customer::class);
     }
-
-
+   
 }
