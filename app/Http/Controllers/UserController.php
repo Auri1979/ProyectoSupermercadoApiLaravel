@@ -9,13 +9,11 @@ class UserController extends Controller
 {
     public function index(){
 
-     $user = User::all();
+        $user = User::all();
 
-    
         return $user;
 
     }
-
     public function show($id){
 
         $user = User::find($id);
@@ -24,7 +22,6 @@ class UserController extends Controller
 
             return ['error' => '$user no encontrado'];
         }
-
         return $user;
     }
 
@@ -52,7 +49,7 @@ class UserController extends Controller
       
     public function update($id, Request $request){
   
-             //validar los user
+        //validar los user
 
         $datos_validados = $request->validate([
   
