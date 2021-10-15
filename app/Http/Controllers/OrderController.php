@@ -29,8 +29,8 @@ class OrderController extends Controller
 
         return  $order;
     }
-          
-      public function update($id, Request $request){
+
+    public function update($id, Request $request){
 
         //validar los datos
 
@@ -65,26 +65,23 @@ class OrderController extends Controller
     }
 
 
-        
+     public  function destroy($id){
 
-  }
+        return "borrar order";
 
-    // public  function destroy($id){
-
-    //     return "borrar order";
-
-    // }
+     }
 
 
     
-//     public function store(Request $request){
+    public function store(Request $request){
 
-//         $datos_validados = $request->validate([
+         $datos_validados = $request->validate([
 
-//           'order' => 'required',
+           'order' => 'required',
 
-//    ]);
-
-
+    ]);
+  
+   }
   
 
+   }

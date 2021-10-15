@@ -103,16 +103,14 @@ class OrdersProductController extends Controller
         return ['error' => 'ordersproduct no encontrado'];
 
       }
-    //Actualizar ordersproducts
+    //borrar ordersproducts
 
       $ordersproduct->destroy($id);
 
       return ['mensaje' => 'ordersproduct borrado'];
-  }
+    }
     
-            
-    
-      }
+       } 
             
      
    

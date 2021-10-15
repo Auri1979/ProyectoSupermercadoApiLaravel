@@ -53,11 +53,11 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
  Route::delete('/offer/{id}', [OfferController::class, 'destroy']);
 // Route::post('/offer',[OfferController::class, 'AuthCategoryController']);
 
-Route::get('ordersproduct',[OrdersProductController::class, 'index']);
-Route::get('/ordersproduct/{id}', [OrdersProductController::class, 'show']);
-Route::post('/ordersproduct', [OrdersProductController::class, 'store']);
-Route::put('/ordersproduct/{id}', [OrdersProductController::class, 'update']);
-Route::delete('/ordersproduct/{id}', [OrdersProductController::class, 'destroy']);
+ Route::get('ordersproduct',[OrdersProductController::class, 'index']);
+ Route::get('/ordersproduct/{id}', [OrdersProductController::class, 'show']);
+ Route::post('/ordersproduct', [OrdersProductController::class, 'store']);
+ Route::put('/ordersproduct/{id}', [OrdersProductController::class, 'update']);
+ Route::delete('/ordersproduct/{id}', [OrdersProductController::class, 'destroy']);
 
 Route::get('offerproduct',[OfferProductController::class, 'index']);
 Route::get('/offerproduct/{id}', [OfferProductController::class, 'show']);

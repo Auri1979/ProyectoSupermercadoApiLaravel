@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdersProduct extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
 
     protected $fillable = [
         
-        'order_id',
+       'order_id',
 
         'product_id',
 
@@ -24,12 +24,12 @@ class OrdersProduct extends Model
 
     public function product()
     {
-        return $this->belongsToMany(Product::class);
-    }
+       return $this->belongsToMany(Product::class);
+   }
 
     public function order()
     {
-        return $this->belongsTo(OrdersPrduct::class,'id_Orderss');
+       return $this->belongsTo(OrdersPrduct::class,'id_Orderss'); 
     }
 
 
