@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Sanctum\HasApiTokens;
-use App\Models\UserLogin;
+
+use App\Models\User;
 
 class AuthController extends Controller
 {
 
-    use HasApiTokens;
 
     public function login(Request $request) { 
 
@@ -39,7 +38,6 @@ class AuthController extends Controller
 
     public function register(Request $request){
         $credentials = $request->validate([ 
-            'name' => 'required',
             'email' => 'required','email', 
             'password' => 'required',
             'confirm_password' => 'required|same:password',
@@ -47,14 +45,14 @@ class AuthController extends Controller
         //encriptar password
         $credentials['password'] = bcrypt($credentials['password']);
         //crear usuario nuevo
-        $usuario = UserLogin::create($credentials);
+        $usuario = User::create($credentials);
         //generar el token
         $token =$usuario->createToken('TokenUsuario')->plainTextToken;
         //devolver respuesta
         return [
             'mensaje' => 'usuario registrado',
             'usuario' => $usuario, 
-            'token' =>$token,
+            'token' => $token,
         ];
     }
 

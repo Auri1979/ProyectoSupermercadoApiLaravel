@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-class CreateOrdersTable extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,21 +13,19 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
-            $table->string('status')->default('pendiente');
-            $table->integer('precio_total');
-            $table->string('notas');
+            $table->string('name');
+            $table->string('lastname');
+            $table->string('address');
+            $table->string('telephone');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');
-            //$table->foreign('id_order')->references('id')->on('orders');
-
         });
-          
     }
-
+       
     /**
      * Reverse the migrations.
      *
@@ -36,6 +33,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('customers');
     }
 }

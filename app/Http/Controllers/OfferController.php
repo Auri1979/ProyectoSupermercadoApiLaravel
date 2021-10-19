@@ -34,22 +34,22 @@ class OfferController extends Controller
        
     public function store(Request $request){
 
-        $datos_validados = $request->validate([
-        
-            
+        $datos_validados = $request->validate([ 
           'title' => 'min:1',
           'start_date' =>'date',
           'end_date' =>'date',
           'discount_type' => 'min:1',
           'discount' => 'min:1',
-
-   ]);
+      ]);
 
          //crear
 
-        Offer::create($datos_validados);
+      $oferta = Offer::create($datos_validados);
 
-        return ['mensaje' => 'offer creado'];
+      return [
+        'oferta' => $oferta,
+        'mensaje' => 'oferta creado'
+      ];
 
    }
        
@@ -84,8 +84,11 @@ class OfferController extends Controller
  
          $offer->update($datos_validados);
  
-         return ['mensaje' => 'Offer actualizado'];
-         }
+         return [
+          'oferta' => $offer,
+           'mensaje' => 'Offer actualizado'
+          ];
+    }
             
          
     public function destroy($id) {

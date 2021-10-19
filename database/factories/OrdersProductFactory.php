@@ -22,11 +22,10 @@ class OrdersProductFactory extends Factory
      public function definition()
      {
         return [
-            
-           'order_id'=> Order::factory(),
-           'product_id'=> Product::factory(),
-           'description'=>$this->faker->text($maxNbChars = 200),
-           'quantity'=>$this->randomNumber($nbDigits = NULL, $strict = false),
-   ];
- }
+            'orders_id'=> Order::factory(),
+            'product_id'=> Product::factory(),
+            'description'=>$this->faker->text($maxNbChars = 200),
+            'quantity'=> $this->faker->randomNumber(),
+        ];
+    }
 }
