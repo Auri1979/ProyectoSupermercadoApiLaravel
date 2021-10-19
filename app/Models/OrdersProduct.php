@@ -12,7 +12,7 @@ class OrdersProduct extends Model
 
     protected $fillable = [
         
-       'order_id',
+        'order_id',
 
         'product_id',
 
@@ -22,15 +22,19 @@ class OrdersProduct extends Model
 
     ];
 
-    public function product()
+    public function products()
     {
-       return $this->belongsToMany(Product::class);
-   }
+       return $this->belongsToMany(Products::class,'Product_id');
+     }
 
-    public function order()
+    public function orders()
     {
-       return $this->belongsTo(OrdersPrduct::class,'id_Orderss'); 
-    }
+       return $this->belongsTo(Orders::class,'Order_id'); 
+     }
 
-
+     
+    public function ordersproducts()
+    {
+       return $this->belongsTo(OrdersPrducts::class, 'Order_id', 'Product_id'); 
+     }
 }

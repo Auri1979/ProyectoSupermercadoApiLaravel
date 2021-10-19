@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-Use App\Models\UserLogin;
+use Laravel\Sanctum\HasApiTokens;
+use App\Models\UserLogin;
 
 class AuthController extends Controller
 {
+
+    use HasApiTokens;
+
     public function login(Request $request) { 
 
         $credentials = $request->validate([ 

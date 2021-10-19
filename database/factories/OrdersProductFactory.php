@@ -1,7 +1,8 @@
 <?php 
 
 namespace Database\Factories;
-use App\Models\OrdersProduct;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrdersProductFactory extends Factory
@@ -22,8 +23,8 @@ class OrdersProductFactory extends Factory
      {
         return [
             
-           'orders_id'=> OrdersProduct::factory(),
-           'product_id'=> OrdersProduct::factory(),
+           'order_id'=> Order::factory(),
+           'product_id'=> Product::factory(),
            'description'=>$this->faker->text($maxNbChars = 200),
            'quantity'=>$this->randomNumber($nbDigits = NULL, $strict = false),
    ];
