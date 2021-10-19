@@ -3,14 +3,50 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function index(){
     
-       $order = Order::all();   
+      $order = Order::all();   
 
-        return $order;
+      return $order;
+    }
+    public function getpedidos($id){
+
+      $consulta1 = Order::with('user')
+                        ->where('id','=', $id)
+                        ->get();
+      return [
+           'data' => $consulta1,
+           'status' => 200
+                      ];     
+    }
+
+    public function store(Request $request) {
+      // Validar
+      $datos_validados = $request->validate([
+        'precio_total' => 'required'
+      ]);
+
+      $precio = $request->only(['precio_total']);
+
+      $order = Order::create([
+        'id_user' => Auth::user()->id,
+        'precio_total' => $precio['precio_total'],
+        'notas' => 'Test'
+      ]);
+
+      $productos = $request->only(['productos']);
+
+      //return $productos;
+      
+      foreach($productos as $producto) {
+        $order->products()->attach($producto['productos'][0], ['quantity' => $producto['productos'][1]]);
+      }
+
+      return $order;
 
     }
 
@@ -64,26 +100,14 @@ class OrderController extends Controller
         return ['mensaje' => 'Order actualizado'];
     }
 
-
-        
-
-  }
-
+  
     // public  function destroy($id){
-
-    //     return "borrar order";
-
-    // }
-
-
     
-//     public function store(Request $request){
+    //     return "borrar order";
+    
+    // }
+}
 
-//         $datos_validados = $request->validate([
-
-//           'order' => 'required',
-
-//    ]);
 
 
   
