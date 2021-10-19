@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');
+            //$table->foreign('id_order')->references('id')->on('orders');
 
         });
           

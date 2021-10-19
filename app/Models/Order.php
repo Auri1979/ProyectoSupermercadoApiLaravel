@@ -27,7 +27,10 @@ class Order extends Model
         return $this->belongsTo(User::class,'id_user');
     }
 
-
+    public function ordersproduct()
+    {
+        return $this->belongsTo(OrdersProduct::class,'id_order');
+    }
 
 
 }
