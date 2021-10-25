@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-
 class CategoryController extends Controller
 {
     public function index(){
@@ -23,21 +22,12 @@ class CategoryController extends Controller
 
       if(!$category){
 
-        return ['error' => 'Productcategory no encontrado'];
+        return ['error' => 'Categoria no encontrada'];
 
       }
 
-      return "mostrar uno";
-    }
-    
+      return $category;
+    }   
 
-    /* public function store(Request $request){
-
-      $datos_validados = $request->validate([
-
-        'category' => 'required',
-
-      ]);
-    } */
 }
 

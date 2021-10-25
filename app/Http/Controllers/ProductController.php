@@ -19,7 +19,7 @@ class ProductController extends Controller
 
         $sql = 'SELECT  CODE , NAME , price , weight, title
                 FROM products, offer_product, offers 
-                WHERE products.id =offer_product.id_product AND offer_product.id=offers.id;';
+                WHERE products.id = offer_product.id_product AND offer_product.id = offers.id;';
 
         $products = DB::select($sql);
     
@@ -32,8 +32,8 @@ class ProductController extends Controller
     public function getcategorias(){  
 
       $sql = 'SELECT NAME, price, category_name
-              FROM products, category
-              WHERE products.id_category = category.id
+              FROM products, categories
+              WHERE products.id_category = categories.id
               order BY category_name;';
 
       $products = DB::select($sql);

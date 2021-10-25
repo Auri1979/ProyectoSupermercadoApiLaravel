@@ -13,7 +13,6 @@ class Product extends Model
 {
     use HasFactory;
 
-
     //use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -49,6 +48,4 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class);
     }
-
-    
 }

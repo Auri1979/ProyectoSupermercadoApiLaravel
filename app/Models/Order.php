@@ -11,11 +11,13 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_user',
+        'user_id',
         'status',
         'precio_total',
         'notas'
     ];
+
+    protected $with = ['products'];
      
     public function products()
     {
@@ -24,10 +26,6 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'id_user');
+        return $this->belongsTo(User::class,'user_id');
     }
-
-
-
-
 }

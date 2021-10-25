@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class OrderController extends Controller
 {
@@ -25,28 +29,31 @@ class OrderController extends Controller
     }
 
     public function store(Request $request) {
+
       // Validar
       $datos_validados = $request->validate([
-        'precio_total' => 'required'
+        'precio_total' => 'required',
+        'productos' => 'required'
       ]);
 
-      $precio = $request->only(['precio_total']);
 
       $order = Order::create([
-        'id_user' => Auth::user()->id,
-        'precio_total' => $precio['precio_total'],
-        'notas' => 'Test'
+        'user_id' => Auth::user()->id,
+        'precio_total' => $request->input('precio_total'),
       ]);
 
-      $productos = $request->only(['productos']);
-
-      //return $productos;
-      
-      foreach($productos as $producto) {
-        $order->products()->attach($producto['productos'][0], ['quantity' => $producto['productos'][1]]);
+      if ($request->exists('notas')) {
+        $order->update(['notas' => $request->input('notas')]);
       }
 
-      return $order;
+      foreach($request->input('productos') as $producto) {
+        $test = $order->products()->attach($order->id,['product_id'=> $producto['id'], 'quantity' => $producto['quantity']]);
+      }
+ 
+      return response()->json([
+        'order' => $order,
+        'productos' => $order->products
+      ]);
 
     }
 
@@ -72,7 +79,7 @@ class OrderController extends Controller
 
         $datos_validados = $request->validate([
 
-            'id_user' => 'min:3',
+            'user_id' => 'min:3',
  
             'description' => 'min:4',
 
