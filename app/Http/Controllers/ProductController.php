@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -12,23 +13,50 @@ class ProductController extends Controller
  
          return $product;
  
-     }
+    }
 
-     public function show($id){
+    public function productosoferta(){  
+
+        $sql = 'SELECT  CODE , NAME , price , weight, title
+                FROM products, offer_product, offers 
+                WHERE products.id = offer_product.id_product AND offer_product.id = offers.id;';
+
+        $products = DB::select($sql);
+    
+      return [
+           'data' => $products,
+           'status' => 200
+      ];     
+    }
+
+    public function getcategorias(){  
+
+      $sql = 'SELECT NAME, price, category_name
+              FROM products, categories
+              WHERE products.id_category = categories.id
+              order BY category_name;';
+
+      $products = DB::select($sql);
+  
+      return [
+          'data' => $products,
+          'status' => 200
+      ];     
+    }
+
+    public function show($id){
  
-         $product = Product::find($id);
+        $product = Product::find($id);
  
-         //comprobar que existe Product
+        //comprobar que existe Product
  
-         if(!$product){
+        if(!$product){
  
-           return ['error' => 'Product no encontrado'];
+          return ['error' => 'Product no encontrado'];
  
-         }
- 
- 
-         return  $product;
-     }
+        }
+        return  $product;
+    }
 
      public function store(Request $request){
 
@@ -50,13 +78,16 @@ class ProductController extends Controller
 
           'stock'=> 'required|min:1',
 
-   ]);
+        ]);
     
         //crear
 
-        Product::create($datos_validados);
+        $producto = Product::create($datos_validados);
 
-        return ['mensaje' => 'Product create'];
+        return [
+          'producto' => $producto,
+          'mensaje' => 'Product create'
+        ];
   }
 
     public function update($id, Request $request){
@@ -99,7 +130,10 @@ class ProductController extends Controller
 
         $product->update($datos_validados);
 
-        return ['mensaje' => 'product actualizado'];
+        return [
+          'producto' => $product,
+          'mensaje' => 'product actualizado'
+        ];
  
     }
       

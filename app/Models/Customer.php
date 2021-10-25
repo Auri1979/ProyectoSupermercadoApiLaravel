@@ -23,14 +23,14 @@ class Customer extends Model
         'telephone', 
     ];
 
-    public function orders()
+    public function order()
     {
-        return $this->hasMany(orders::class);
+        return $this->hasMany(Order::class);
         
     }
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(users::class);
+        return $this->belongsTo(User::class);
     }
 }
 
