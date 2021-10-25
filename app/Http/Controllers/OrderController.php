@@ -72,8 +72,8 @@ class OrderController extends Controller
 
         return  $order;
     }
-          
-      public function update($id, Request $request){
+
+    public function update($id, Request $request){
 
         //validar los datos
 
@@ -116,6 +116,4 @@ class OrderController extends Controller
 }
 
 
-
-  
-
+    
