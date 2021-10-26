@@ -6,10 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Models;
 use Laravel\Sanctum\HasApiTokens;
-
- 
 
 class User extends Authenticatable
 {
@@ -22,13 +20,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'rol',
-        'name',
-        'lastname',
-        'address',
         'email',
+        'email_verified_at',
         'password',
-        'telephone',
-
     ];
 
     /**
@@ -50,10 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function orders()
+    public function customers()
     {
-        return $this->hasMany(orders::class);
+        return $this->hasOne(Customer::class);
     }
-
-
+   
 }

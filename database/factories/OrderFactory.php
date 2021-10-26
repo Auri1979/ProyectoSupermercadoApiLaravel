@@ -25,6 +25,7 @@ class OrderFactory extends Factory
                 return [
                     
                     'id_user'=> User::factory(),
+                   // 'order' => Order::factory(),
                     'description'=> $this->faker->text($maxNbChars = 200),
                     'status'=> $this->faker->words($nb = 4, $asText = false),   
                     'total'=> $this->faker->numberBetween($min = 1, $max = 200),
